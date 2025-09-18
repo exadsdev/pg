@@ -7,33 +7,139 @@ import { products } from "./lib/products";
 const SITE = "https://www.sexshop168.shop";
 
 export const metadata = {
-  metadataBase: new URL(SITE),
-  title: "PG Phone | ร้านขายมือถือออนไลน์ PG ทุกรุ่น",
+  title:
+    "PG Phone | ร้านขายมือถือออนไลน์ PG ทุกรุ่น",
   description:
     "PG Phone ร้านขายมือถือออนไลน์ ทุกรุ่น เช่น PG V9, PG V8, PG V7 และรุ่นอื่น ๆ ส่งตรงถึงมือคุณด้วยคุณภาพและบริการมืออาชีพ",
-  keywords:
-    "PG Phone, pg v9, pg v8, มือถือ pg, pg phone ไทย, ซื้อ pg phone ออนไลน์",
+  keywords: [
+    "PG-Phone",
+    "มือถือ",
+    "สมาร์ทโฟน",
+    "ร้านขายมือถือ",
+    "ราคามือถือ",
+    "ซื้อมือถือออนไลน์",
+    "ผ่อนมือถือ",
+    "PG-V9",
+    "PG-V9 PRO",
+  ],
   openGraph: {
-    type: "website",
-    url: SITE,
-    title: "PG Phone | ร้านขายมือถือออนไลน์ PG ทุกรุ่น",
+    title:
+      "PG Phone | ร้านขายมือถือออนไลน์ PG ทุกรุ่น",
     description:
       "PG Phone ร้านขายมือถือออนไลน์ ทุกรุ่น เช่น PG V9, PG V8, PG V7 และรุ่นอื่น ๆ ส่งตรงถึงมือคุณด้วยคุณภาพและบริการมืออาชีพ",
-    images: products.slice(0, 3).map((p) => ({
-      url: `${SITE}${p.image}`,
-      alt: p.name,
-      width: 800,
-      height: 600,
-    })),
+    url: "https://www.sexshop168.shop",
+    siteName: "PG Phone Pro",
+    images: [
+      {
+        url: "https://www.sexshop168.shop/img/review.jpg",
+        width: 1200,
+        height: 630,
+        alt: "PG Phone - สมาร์ทโฟน Android ราคาสุดคุ้ม",
+      },
+    ],
+    type: "website",
+    locale: "th_TH",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "PG Phone | ร้านขายมือถือออนไลน์ PG ทุกรุ่น",
+    description:
+      "PG Phone ร้านขายมือถือออนไลน์ ทุกรุ่น เช่น PG V9, PG V8, PG V7 และรุ่นอื่น ๆ ส่งตรงถึงมือคุณด้วยคุณภาพและบริการมืออาชีพ",
+    images: ["https://www.sexshop168.shop/img/review.jpg"],
   },
 };
 
+function StructuredData() {
+  const schema = [
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      name: "PG-Phone",
+      image: [
+        "https://www.sexshop168.shop/img/review.jpg",
+        "https://www.sexshop168.shop/img/review.jpg",
+      ],
+      description:
+        "PG Phone | มือถือราคาคุ้มค่า โปรโมชั่นแรง ส่งตรงถึงหน้าบ้าน ซื้อขายมือถือออนไลน์ ราคาดี ของแท้ 100% จัดส่งเร็ว สั่งซื้อง่าย",
+      brand: {
+        "@type": "Brand",
+        name: "PG-Phone",
+      },
+      offers: {
+        "@type": "Offer",
+        url: "https://www.sexshop168.shop/",
+        priceCurrency: "THB",
+        price: "9900",
+        priceValidUntil: "2025-12-31",
+        itemCondition: "https://schema.org/NewCondition",
+        availability: "https://schema.org/InStock",
+        seller: {
+          "@type": "Organization",
+          name: "PG-Phone",
+          url: "https://www.sexshop168.shop",
+          logo: "https://www.sexshop168.shop/img/logo.png",
+        },
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "PG Phone Pro",
+      url: "https://www.sexshop168.shop",
+      potentialAction: {
+        "@type": "SearchAction",
+        target:
+          "https://www.sexshop168.shop/search?q={search_term_string}",
+        "query-input": "required name=search_term_string",
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "หน้าแรก",
+          item: "https://www.sexshop168.shop",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "สินค้า",
+          item: "https://www.sexshop168.shop/products",
+        },
+      ],
+    },
+  ];
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
 export default function LandingPage() {
   return (
     <>
   
       <section className="bg-light py-5 text-center">
         <div className="container">
+            <div className="col-lg-6 mx-auto">
+            <div className="ratio ratio-16x9 rounded-4 overflow-hidden shadow-sm">
+              <Image
+                src="/img/review.jpg"
+                alt="PG Phone สมาร์ทโฟน 4G หน้าจอ 6 นิ้ว"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+          </div>
+
+        
           <h1 className="mb-3">PG Phone - มือถือคุณภาพ ทุกรุ่น</h1>
           <p className="lead mb-4">
             ร้านขายโทรศัพท์มือถือราคาถูกยี่ห้อ PG | สมาร์ทโฟน 4G ระบบแอนดรอยด์
@@ -74,7 +180,7 @@ export default function LandingPage() {
           <div className="col-lg-6">
             <div className="ratio ratio-16x9 rounded-4 overflow-hidden shadow-sm">
               <Image
-                src="/img/review1.jpg"
+                src="/img/review.jpg"
                 alt="PG Phone สมาร์ทโฟน 4G หน้าจอ 6 นิ้ว"
                 fill
                 priority
